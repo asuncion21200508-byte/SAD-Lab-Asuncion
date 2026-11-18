@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Record Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Student Record Management System</h1>
+  <p>Add, view, edit, and delete student records.</p>
+</header>
+
+<main>
+  <section class="panel">
+    <h2 id="form-title">Add student</h2>
+    <form id="student-form" autocomplete="off">
+      <input type="hidden" id="row-id">
+      <label>Student ID
+        <input id="student_id" required placeholder="2024-0006">
+      </label>
+      <label>Full name
+        <input id="full_name" required placeholder="Juan Dela Cruz">
+      </label>
+      <label>Program
+        <input id="program" required placeholder="BS Information Technology">
+      </label>
+      <label>Year level
+        <select id="year_level" required>
+          <option value="">Select year level</option>
+          <option>1st Year</option><option>2nd Year</option>
+          <option>3rd Year</option><option>4th Year</option>
+        </select>
+      </label>
+      <label>Email
+        <input id="email" type="email" required placeholder="name@school.edu">
+      </label>
+      <div class="actions">
+        <button type="submit" id="save-btn" class="primary">Save</button>
+        <button type="button" id="cancel-btn" class="ghost" hidden>Cancel edit</button>
+      </div>
+      <p id="message" role="status"></p>
+    </form>
+  </section>
+
+  <section class="panel">
+    <h2>Student records <span id="count"></span></h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Student ID</th><th>Full name</th><th>Program</th><th>Year level</th><th>Email</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
